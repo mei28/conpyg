@@ -129,3 +129,17 @@ class Config:
     # ========== 表示 ==========
     def __repr__(self) -> str:  # pragma: no cover
         return f"Config({self._data})"
+
+    # 末尾付近に追記 ────────────────────────────────────────────
+    # ========== Pretty renderer ==========
+    def pretty(self, *, sort_keys: bool = False, indent: int = 2) -> str:
+        """Return the config as prettified YAML-formatted string."""
+        return yaml.safe_dump(
+            self.to_dict(),
+            sort_keys=sort_keys,
+            indent=indent,
+            allow_unicode=True,
+            default_flow_style=False,
+        ).rstrip()  # 末尾改行を揃える
+
+    __str__ = pretty  # print(cfg) で見られるワンライナー
