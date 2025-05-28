@@ -1,0 +1,29 @@
+[project]
+name = "conpyg"
+version = "0.1.0"
+description = "Minimal hierarchical config loader with profile & CLI overrides"
+readme = "README.md"
+authors = [{name = "Mingzhe Yang", email = "mei28aquarius@gmail.com"}]
+requires-python = ">=3.11"
+dependencies = [
+    "pyyaml>=6.0.2",
+]
+
+[project.urls]
+Homepage = "https://github.com/mei28/conpyg"
+Source   = "https://github.com/mei28/conpyg"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[dependency-groups]
+dev = [
+    "hypothesis>=6.131.30",
+    "pytest>=8.3.5",
+    "pytest-cov>=6.1.1",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["conpyg*"]
